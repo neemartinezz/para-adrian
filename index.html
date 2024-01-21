@@ -15,18 +15,34 @@
         }
 
         #flower-message {
-            opacity: 0; /* Inicialmente, la flor estará invisible */
+            opacity: 0;
             text-align: center;
-            transition: opacity 1s ease-in-out; /* Transición de opacidad durante 1 segundo */
+            transition: opacity 1s ease-in-out;
         }
 
         #flower-message.show {
-            opacity: 1; /* Cuando la clase "show" se agrega, la flor se vuelve visible */
+            opacity: 1;
         }
 
         #flower-image {
             width: 200px;
             height: auto;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        .button {
+            padding: 10px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        #love-message {
+            display: none;
+            font-size: 2em;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -36,11 +52,24 @@
         <p>Siempre estaré aquí.</p>
     </div>
 
+    <div class="button-container">
+        <button class="button" onclick="mostrarMensaje('Te amo 11')">Querernos para Siempre</button>
+        <button class="button" onclick="mostrarMensaje(':(')">Hasta Aquí</button>
+    </div>
+
+    <div id="love-message"></div>
+
     <script>
-        // Agrega la clase "show" después de un breve retraso para permitir la animación
-        setTimeout(function() {
+        function mostrarMensaje(mensaje) {
             document.getElementById('flower-message').classList.add('show');
-        }, 500); // Espera 500 milisegundos (0.5 segundos) antes de agregar la clase "show"
+            document.getElementById('love-message').innerText = mensaje;
+            document.getElementById('love-message').style.display = 'block';
+        }
+
+        function ocultarMensaje() {
+            document.getElementById('flower-message').classList.remove('show');
+            document.getElementById('love-message').style.display = 'none';
+        }
     </script>
 </body>
 </html>

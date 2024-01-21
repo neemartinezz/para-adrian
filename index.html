@@ -15,12 +15,17 @@
         }
 
         #flower-message {
-            display: none;
+            opacity: 0; /* Inicialmente, la flor estará invisible */
             text-align: center;
+            transition: opacity 1s ease-in-out; /* Transición de opacidad durante 1 segundo */
+        }
+
+        #flower-message.show {
+            opacity: 1; /* Cuando la clase "show" se agrega, la flor se vuelve visible */
         }
 
         #flower-image {
-            width: 200px; /* Ajusta el tamaño de la flor según tus preferencias */
+            width: 200px;
             height: auto;
         }
     </style>
@@ -32,13 +37,10 @@
     </div>
 
     <script>
-        // Verifica si el mensaje ya se ha mostrado anteriormente
-        if (localStorage.getItem('mensajeMostrado') !== 'true') {
-            // Muestra la flor y el mensaje
-            document.getElementById('flower-message').style.display = 'block';
-            // Marca el mensaje como mostrado para no volver a mostrarlo
-            localStorage.setItem('mensajeMostrado', 'true');
-        }
+        // Agrega la clase "show" después de un breve retraso para permitir la animación
+        setTimeout(function() {
+            document.getElementById('flower-message').classList.add('show');
+        }, 500); // Espera 500 milisegundos (0.5 segundos) antes de agregar la clase "show"
     </script>
 </body>
 </html>

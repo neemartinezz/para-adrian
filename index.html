@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensaje de Flor</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        #flower-message {
+            display: none;
+            text-align: center;
+        }
+
+        #flower-image {
+            width: 200px; /* Ajusta el tamaño de la flor según tus preferencias */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="flower-message">
+        <img id="flower-image" src="https://svgsilh.com/svg/1331896.svg" alt="Flor">
+        <p>Siempre estaré aquí.</p>
+    </div>
+
+    <script>
+        // Verifica si el mensaje ya se ha mostrado anteriormente
+        if (localStorage.getItem('mensajeMostrado') !== 'true') {
+            // Muestra la flor y el mensaje
+            document.getElementById('flower-message').style.display = 'block';
+            // Marca el mensaje como mostrado para no volver a mostrarlo
+            localStorage.setItem('mensajeMostrado', 'true');
+        }
+    </script>
+</body>
+</html>
